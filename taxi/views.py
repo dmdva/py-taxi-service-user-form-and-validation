@@ -33,14 +33,14 @@ def index(request):
 def assign_driver_to_car(request, pk):
     car = Car.objects.get(pk=pk)
     car.drivers.add(request.user)
-    redirect("taxi:car-detail", pk=pk)
+    return redirect("taxi:car-detail", pk=pk)
 
 
 @login_required
 def unassign_driver_from_car(request, pk):
     car = Car.objects.get(pk=pk)
     car.drivers.remove(request.user)
-    redirect("taxi:car-detail", pk=pk)
+    return redirect("taxi:car-detail", pk=pk)
 
 
 class ManufacturerListView(LoginRequiredMixin, generic.ListView):
