@@ -1,8 +1,19 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
+from django import forms
 from django.forms import ModelForm
-from taxi.models import Driver
+
+from .models import Car
+
+
+class CarForm(ModelForm):
+    class Meta:
+        model = Car
+        widgets = {
+            "drivers": forms.CheckboxSelectMultiple,
+        }
+        fields = "__all__"
 
 
 class DriverCreationForm(UserCreationForm):
