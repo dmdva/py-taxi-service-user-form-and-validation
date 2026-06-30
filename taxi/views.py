@@ -6,7 +6,7 @@ from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .forms import DriverCreationForm, DriverLicenseUpdateForm, CarForm
-from .models import Driver, Car, Manufacturer
+from .models import Car, Manufacturer
 Driver = get_user_model()
 
 
